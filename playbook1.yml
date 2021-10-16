@@ -1,8 +1,9 @@
-- hosts: webserver
+---
+- hosts: webservers
   become: true
   become_user: ec2-user
   tasks:
   - name: install docker
     yum: name=docker state=present
   - name: start docker
-    service: name=docker state=started
+    service: name=docker state=restarted

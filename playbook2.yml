@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+
+  tasks:
+  - name: clone the repo 
+    git: repo=https://github.com/rsadhukhan/edureka-project1.git dest=/gitrepo
+   
+  - name: loginto docker
+    command: docker login --username rsadhukhan --password XXY#760Qbe
+    
+  - name: change directory and build dockerfile
+    command: chdir=/gitrepo docker build -t mywebapp .

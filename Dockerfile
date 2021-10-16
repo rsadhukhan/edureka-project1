@@ -2,7 +2,7 @@ FROM devopsedu/webapp
 
 MAINTAINER Rahul Sadhukhan
 
-ADD website /var/www/html
+ADD /gitrepo/website /var/www/html
 
 RUN rm /var/www/html/index.html
 

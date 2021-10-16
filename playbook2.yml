@@ -12,3 +12,6 @@
     
   - name: change directory and build dockerfile
     command: chdir=/gitrepo docker build -t mywebapp .
+    
+  - name: run the image to launch container
+    command: docker run -itd -p 30008:80 mywebapp

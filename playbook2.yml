@@ -4,6 +4,9 @@
   become_user: root
 
   tasks:
+  - name:
+    command: docker rm -f phpapp
+    
   - name: clone the repo 
     git: repo=https://github.com/rsadhukhan/edureka-project1.git dest=/gitrepo
    
@@ -14,4 +17,4 @@
     command: chdir=/gitrepo docker build -t mywebapp .
     
   - name: run the image to launch container
-    command: docker run -itd -p 30008:80 mywebapp
+    command: docker run --name phpapp -itd -p 30008:80 mywebapp

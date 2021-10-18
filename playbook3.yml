@@ -5,7 +5,9 @@
 
   tasks:
   - name: Delete all running container
-    command: docker rm -f $(docker ps -a -q)
+    docker_container:
+      name: hopeful_clarke
+      state: absent
     
   - name: Delete all images
     command: docker image prune -a -f

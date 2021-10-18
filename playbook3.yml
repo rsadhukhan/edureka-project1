@@ -4,5 +4,8 @@
   become_user: root
 
   tasks: 
+  - name: remove running container
+    command: docker rm -f phpapp
+    
   - name: Delete all images
     command: docker image prune -a -f

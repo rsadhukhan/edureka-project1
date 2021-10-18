@@ -3,11 +3,6 @@
   become: true
   become_user: root
 
-  tasks:
-  - name: Delete all running container
-    docker_container:
-      name: hopeful_clarke
-      state: absent
-    
+  tasks: 
   - name: Delete all images
     command: docker image prune -a -f

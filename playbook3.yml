@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  become: true
+  become_user: root
+
+  tasks:
+  - name: Delete all running container
+    command: docker rm -f $(docker ps -a -q)
+    
+  - name: Delete all images
+    command: docker image prune -a -f

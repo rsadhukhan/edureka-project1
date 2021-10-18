@@ -4,7 +4,7 @@
   become_user: root
 
   tasks:
-  - name:
+  - name: remove running container
     command: docker rm -f phpapp
     
   - name: clone the repo 

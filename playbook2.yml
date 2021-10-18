@@ -4,6 +4,12 @@
   become_user: root
 
   tasks:
+  - name: Delete all running container
+    command: docker rm -f $(docker ps -a -q)
+    
+  - name: Remove old images
+    command: docker image prune -a -f
+    
   - name: clone the repo 
     git: repo=https://github.com/rsadhukhan/edureka-project1.git dest=/gitrepo
    
